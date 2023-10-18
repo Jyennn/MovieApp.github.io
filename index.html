@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Movie App</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <form id="form">
+                <input type="text" id="search" class="search" placeholder="Search">
+            </form>
+        </header>
+
+        <main id="main">
+            <div class="movie" v-for="el in movies">
+                <img :src="IMG_PATH + el.poster_path" :alt="el.title">
+                <div class="movie-info">
+                    <h3>{{el.title}}</h3>
+                    <span :class="getClassByRate(el.vote_average)">{{el.vote_average}}</span>
+                </div>
+                <div class="overview">
+                    <h3>{{el.overview}}</h3>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./script.js"></script>
+
+</html>
